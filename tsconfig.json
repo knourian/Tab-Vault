@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "types": ["jest"],
-    "module": "CommonJS",
+    "types": ["jest","chrome"],
+    "module": "esnext",
+    "moduleResolution": "node",
     "outDir": "dist",
     "rootDir": "./",
     "strict": true,
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+  },
+  "include": [
+    "src/**/*",
+    "__tests__/**/*"
+  ]
 }
