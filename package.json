@@ -1,0 +1,17 @@
+{
+  "name": "tab-vault",
+  "version": "1.0.0",
+  "description": "Tab Vault is a Chrome extension that allows users to select and save open tabs in JSON, Markdown, and HTML formats, and reload them later. Built with TypeScript, it provides a simple interface for managing tab sessions efficiently.",
+  "main": "background.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5"
+  }
+}
