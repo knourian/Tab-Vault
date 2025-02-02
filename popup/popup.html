@@ -5,10 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tab Vault</title>
+    <link rel="stylesheet" href="popup.css">
 </head>
 
 <body>
-    <h1>Tab Vault</h1>
+    <h3>Select Tabs to Save</h3>
+    <div id="tabs-list">
+        <!-- Dynamically populated list of checkboxes for tabs -->
+    </div>
+    <label for="format">Select Output Format:</label>
+    <select id="format">
+        <option value="JSON">JSON</option>
+        <option value="MARKDOWN">Markdown</option>
+        <option value="HTML">HTML</option>
+    </select>
     <button id="saveTabsBtn">Save Tabs</button>
     <button id="loadTabsBtn">Load Tabs</button>
     <div id="tabsOutput"></div>
