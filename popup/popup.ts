@@ -46,6 +46,28 @@ saveButton.addEventListener('click', () => {
     }, 2000);
 });
 
+loadButton.addEventListener('click', () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'application/json';
+    input.onchange = (event) => {
+        const file = (event.target as HTMLInputElement).files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const content = e.target?.result as string;
+                chrome.runtime.sendMessage({
+                    action: 'loadTabs',
+                    content,
+                });
+            };
+            reader.readAsText(file);
+        }
+    };
+    input.click();
+
+});
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     const { savedData, selectedFormat } = message;
     if (message.action === 'downloadFile') {

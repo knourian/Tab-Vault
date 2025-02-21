@@ -23,15 +23,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             selectedFormat: selectedFormat,
         });
     } else if (message.action === 'loadTabs') {
-        chrome.storage.local.get('savedTabs', (result) => {
-            if (result.savedTabs) {
-                const tabs = loadTabs(result.savedTabs);
-                console.log('Loaded Tabs:', tabs);
-                const outputDiv = document.getElementById('tabsOutput');
-                if (outputDiv) {
-                    outputDiv.innerHTML = tabs.map(tab => `<a href="${tab.url}">${tab.title}</a><br>`).join('');
-                }
-            }
+        const content: string = message.content;
+        const tabs = loadTabs(content);
+        tabs.forEach(tab => {
+            chrome.tabs.create({ url: tab.url });
         });
     }
 });
