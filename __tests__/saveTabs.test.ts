@@ -16,7 +16,9 @@ describe('saveTabs', () => {
 
     it('should save tabs in Markdown format', () => {
         const result = saveTabs(tabs, TabFormat.MARKDOWN);
-        expect(result).toBe('- [Example](https://example.com)\n- [Another Example](https://another.com)');
+        expect(result).toContain('- [Example](https://example.com)');
+        expect(result).toContain('- [Another Example](https://another.com)');
+        expect(result).toMatch(/# Saved Tabs - \d{4}\/\d{2}\/\d{2} \d{2}:\d{2}/);
     });
 
     it('should save tabs in HTML format', () => {
@@ -24,5 +26,17 @@ describe('saveTabs', () => {
         expect(result).toContain('<html>');
         expect(result).toContain('<a href="https://example.com">Example</a>');
         expect(result).toContain('<a href="https://another.com">Another Example</a>');
+        expect(result).toMatch(/<h1>Saved Tabs - \d{4}\/\d{2}\/\d{2} \d{2}:\d{2}<\/h1>/);
+    });
+
+    it('should handle an empty list of tabs', () => {
+        const resultJson = saveTabs([], TabFormat.JSON);
+        expect(resultJson).toBe('[]');
+
+        const resultMarkdown = saveTabs([], TabFormat.MARKDOWN);
+        expect(resultMarkdown).toMatch(/# Saved Tabs - \d{4}\/\d{2}\/\d{2} \d{2}:\d{2}\n\n/);
+
+        const resultHtml = saveTabs([], TabFormat.HTML);
+        expect(resultHtml).toMatch(/<h1>Saved Tabs - \d{4}\/\d{2}\/\d{2} \d{2}:\d{2}<\/h1>\n\s*<ul>\n\s*<\/ul>/);
     });
 });
