@@ -11,7 +11,6 @@
 <body>
     <h3>Select Tabs to Save</h3>
     <div id="tabs-list">
-        <!-- Dynamically populated list of checkboxes for tabs -->
     </div>
     <label for="format">Select Output Format:</label>
     <select id="format">
@@ -19,8 +18,8 @@
         <option value="MARKDOWN">Markdown</option>
         <option value="HTML">HTML</option>
     </select>
-    <button id="saveTabsBtn">Save Tabs</button>
-    <button id="loadTabsBtn">Load Tabs</button>
+    <button id="saveTabsBtn" class="btn-save">Save Tabs</button>
+    <button id="loadTabsBtn" class="btn-load">Load Tabs</button>
     <div id="tabsOutput"></div>
 
     <script src="../popup.js"></script>

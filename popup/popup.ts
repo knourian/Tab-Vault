@@ -16,7 +16,7 @@ chrome.tabs.query({}, (tabs) => {
         checkbox.id = `tab-${tab.id}`;
         label.appendChild(checkbox);
         label.appendChild(document.createTextNode(tab.title || tab.url as string));
-
+        label.title = tab.url as string;
         tabsList.appendChild(label);
     });
 });
@@ -43,7 +43,7 @@ saveButton.addEventListener('click', () => {
             selectedTabs,
             selectedFormat,
         });
-    }, 1000); // Delay to ensure tabs are fetched
+    }, 2000);
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
