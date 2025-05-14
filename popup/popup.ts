@@ -1,6 +1,6 @@
 import { TabData } from '../models/TabData';
 import { TabFormat } from '../models/TabFormat';
-import { downloadFile } from '../scripts/fileHandler';
+import { downloadFileWithFileSystemAPI } from '../scripts/fileHandler';
 
 const saveButton = document.getElementById('saveTabsBtn') as HTMLButtonElement;
 const loadButton = document.getElementById('loadTabsBtn') as HTMLButtonElement;
@@ -89,13 +89,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'downloadFile') {
         switch (selectedFormat) {
             case TabFormat.JSON:
-                downloadFile(savedData, 'tabs.json', 'application/json');
+                downloadFileWithFileSystemAPI(savedData, 'tabs.json', 'application/json');
                 break;
             case TabFormat.MARKDOWN:
-                downloadFile(savedData, 'tabs.md', 'text/markdown');
+                downloadFileWithFileSystemAPI(savedData, 'tabs.md', 'text/markdown');
                 break;
             case TabFormat.HTML:
-                downloadFile(savedData, 'tabs.html', 'text/html');
+                downloadFileWithFileSystemAPI(savedData, 'tabs.html', 'text/html');
                 break;
             default:
                 throw new Error('Unsupported format');
