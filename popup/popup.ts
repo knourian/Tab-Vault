@@ -6,6 +6,8 @@ const saveButton = document.getElementById('saveTabsBtn') as HTMLButtonElement;
 const loadButton = document.getElementById('loadTabsBtn') as HTMLButtonElement;
 const formatSelect = document.getElementById('format') as HTMLSelectElement;
 const tabsList = document.getElementById('tabs-list') as HTMLDivElement;
+const selectAllButton = document.getElementById('selectAllBtn') as HTMLButtonElement;
+const clearSelectionButton = document.getElementById('clearSelectionBtn') as HTMLButtonElement;
 
 chrome.tabs.query({}, (tabs) => {
     tabs.forEach(tab => {
@@ -66,6 +68,20 @@ loadButton.addEventListener('click', () => {
     };
     input.click();
 
+});
+
+selectAllButton.addEventListener('click', () => {
+    const checkboxes = tabsList.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        (checkbox as HTMLInputElement).checked = true;
+    });
+});
+
+clearSelectionButton.addEventListener('click', () => {
+    const checkboxes = tabsList.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        (checkbox as HTMLInputElement).checked = false;
+    });
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

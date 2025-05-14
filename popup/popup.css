@@ -1,5 +1,5 @@
 body {
-  font-family: Verdana, sans-serif;
+  font-family: Verdana,system-ui, sans-serif;
   margin: 10px;
   width: 300px;
 }
@@ -19,12 +19,11 @@ label {
   text-transform: capitalize;
   font-size: 1.15em;
   font-weight: normal;
-  
 }
 
 button {
-  margin-top: 10px;
-  padding: 8px 16px;
+  margin-top: 5px;
+  padding: 5px 5px;
   color: white;
   border: none;
   cursor: pointer;
@@ -45,6 +44,22 @@ button {
 
 .btn-load:hover {
   background-color: #92d194;
+}
+
+.btn-select {
+  background-color: #007BFF; 
+}
+
+.btn-select:hover {
+  background-color: #5AA9FF; 
+}
+
+.btn-clear {
+  background-color: #FF5733; 
+}
+
+.btn-clear:hover {
+  background-color: #FF8A66; 
 }
 
 select {
