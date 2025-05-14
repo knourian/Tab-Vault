@@ -3,7 +3,7 @@
 This guide explains how to load an unpacked extension.
 
 ## Prerequisites
-* Download Extension source **tabVault.0.3.33381.zip** from release page [V1](https://github.com/knourian/Tab-Vault/releases/tag/V1)
+* Download Extension source **tabVault.0.4.42695.zip** from release page [V2](https://github.com/knourian/Tab-Vault/releases/tag/v2)
 * Unpack zip folder to a desired location
 * **Developer Mode Enabled:** You need to enable Developer Mode in your browser.
 
